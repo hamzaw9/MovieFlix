@@ -41,3 +41,10 @@ const renderMovies = async () => {
 };
 
 renderMovies();
+
+
+function popup () {
+  const movies = homepage.forEach(movie => {
+    console.log(movie)
+  })
+}
