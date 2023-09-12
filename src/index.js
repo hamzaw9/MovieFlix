@@ -1,6 +1,6 @@
-import "./style.css";
+import './style.css';
 
-const moviesURL = "https://api.tvmaze.com/shows";
+const moviesURL = 'https://api.tvmaze.com/shows';
 
 const fetchData = async () => {
   const response = await fetch(moviesURL);
@@ -9,10 +9,10 @@ const fetchData = async () => {
   return result;
 };
 
-const homepage = document.querySelector("#homepage");
+const homepage = document.querySelector('#homepage');
 
 const renderMovies = async () => {
-  homepage.innerHTML = "";
+  homepage.innerHTML = '';
 
   try {
     const movies = await fetchData();
@@ -36,7 +36,7 @@ const renderMovies = async () => {
       </div>`;
     });
   } catch (error) {
-    console.error("Error:", error);
+    console.error('Error:', error);
   }
 };
 
