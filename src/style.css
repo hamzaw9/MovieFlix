@@ -17,6 +17,17 @@ a {
   cursor: pointer;
 }
 
+header {
+  padding: 20px;
+  background-color: #262626;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  color: blue;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -26,7 +37,32 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 70px;
+}
+
+.nav-links a {
+  color: rgb(72, 170, 173);
+  font-weight: 900;
+  font-size: 20px;
+  transition: font-size 0.5s;
+}
+
+.nav-links a:hover {
+  font-size: 21px;
+}
+
+main {
+  background-image: url("https://dali.madrasthemes.com/elementor/wp-content/uploads/2022/09/bg.png");
+  background-size: cover;
+  padding: 1% 5% 0 5%;
+}
+
+#homepage {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 16px;
+  padding: 30px 90px;
+  text-align: center;
 }
 
 .popup_container {
@@ -87,4 +123,72 @@ form {
 
 .add_comment {
   width: fit-content;
+}
+
+.movie {
+  padding: 4px;
+  transition: transform 0.7s;
+}
+
+.movie:hover {
+  transform: scale(1.02);
+}
+
+.movie-info {
+  color: cornflowerblue;
+  padding: 10px 0;
+}
+
+.movie-image {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.movie-name {
+  padding-bottom: 10px;
+}
+
+.like-icon {
+  cursor: pointer;
+  width: max-content;
+  margin-bottom: 10px;
+}
+
+.like-icon:active {
+  color: red;
+}
+
+footer {
+  padding: 20px;
+  background-color: #262626;
+  color: rgb(72, 170, 173);
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watch-button,
+.comment-button {
+  color: #fff;
+  padding: 5px 13px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: padding-right 1s, padding-left 1s;
+}
+
+.watch-button:hover,
+.comment-button:hover {
+  padding-right: 9px;
+  padding-left: 17px;
 }
