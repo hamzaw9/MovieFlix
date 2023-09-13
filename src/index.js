@@ -23,18 +23,25 @@ function showPopup(movie) {
       <div class="popup_img">
       <img src="${movie.image.medium}" alt="movieImg">
       </div>
-      <h2 class="movieTitle">${movie.name}</h2>
-      <article class="movieDescription">${movie.summary}</article>
-      <h4>Comments: <span id="commentsCount"></span></h4>
-     <article id="comments" class="comments_container">
-
-     </article>
-     <h3>Add comments</h3>
-     <form action="" id="form">
-       <input id="name" type="text" name="name" placeholder="Your name"> <br>
-       <textarea name="comments" id="movie_comments" cols="15" rows="10" placeholder="Your insights"></textarea><br>
-       <button class="add_comment" type="submit" id="${movie.id}"> Add Comment</button>
-     </form>
+      <div class="popup-inner">
+        <h2 class="movieTitle">${movie.name}</h2>
+        <article class="movieDescription">${movie.summary}</article>
+        <h4>Comments: <span id="commentsCount"></span></h4>
+      <article id="comments" class="comments_container">
+      <p>coming</p>
+          <p>Popular</p>
+          <p>coming</p>
+          <p>Popular</p>
+      </article>
+      <h3>Add comments</h3>
+      <form action="" id="form">
+        <input id="name" type="text" name="name" placeholder="Your name"> <br>
+        <textarea name="comments" id="movie_comments" cols="15" rows="10" placeholder="Your insights"></textarea><br>
+        <button class="add_comment" type="submit" id="${movie.id}"> Add Comment</button>
+      </form>
+      
+      </div>
+      
     </section>`;
   // Display the popup
   popupContainer.style.display = "block";
