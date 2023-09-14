@@ -185,7 +185,7 @@ const postComments = async (ID, name, comment) => {
 };
 
 const fetchComments = async (id) => {
-  const response = await fetch(`${ commentURL }?item_id=id`);
+  const response = await fetch(`${ commentURL }?item_id=${id}`);
   const result = await response.json();
   console.log(result);
   return result;
