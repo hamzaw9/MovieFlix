@@ -101,7 +101,7 @@ main {
   flex-direction: column;
   border: 2px solid teal;
   border-radius: 8px;
-  padding: 12px 0;
+  max-height: 25vh;
 }
 
 .comments_container p {
@@ -136,10 +136,6 @@ main {
   border-radius: 10px;
   font-size: 20px;
   float: right;
-}
-
-h3 {
-  margin-top: 2rem;
 }
 
 form {

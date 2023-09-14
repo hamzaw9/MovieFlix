@@ -36,6 +36,19 @@ function showPopup(movie) {
         <article class="movieDescription">${movie.summary}</article>
         <h4>Comments: <span id="comments-count"></span></h4>
       <div id="comments" class="comments_container">
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
+      <p>jnk</p>
       </div>
       <h3>Add comments</h3>
       <form id="form">
