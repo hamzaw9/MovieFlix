@@ -14,34 +14,45 @@ const fetchData = async () => {
   return result;
 };
 
+/*---------**************       Item Count    ***************----------*/
+
+const itemCount = () => {
+  const items = document.getElementById("items");
+  fetchData().then((result) => {
+    items.textContent = result.length;
+  });
+};
+
+itemCount();
+
 /*---------**************       Popup    ***************----------*/
 
 const homepage = document.querySelector("#homepage");
 const popupContainer = document.querySelector("#popup-container");
 const overlay = document.getElementById("overlay");
 
-function closebuttonHandler () {
+function closebuttonHandler() {
   popupContainer.style.display = "none";
 }
 
-function showPopup (movie) {
+function showPopup(movie) {
   // Populate the popup with movie information
   popupContainer.innerHTML = `<section class="popup_container">
     <button class="close_button" id="close_popup">&times;</button>
       <div class="popup_img">
-      <img src="${ movie.image.medium }" alt="movieImg">
+      <img src="${movie.image.medium}" alt="movieImg">
       </div>
       <div class="popup-inner">
-        <h2 class="movieTitle">${ movie.name }</h2>
-        <article class="movieDescription">${ movie.summary }</article>
-        <h4>Comments:  (<span class="comments-count" id="${ movie.id }"></span>)</h4>
-      <div id="${ movie.id }" class="comments_container">
+        <h2 class="movieTitle">${movie.name}</h2>
+        <article class="movieDescription">${movie.summary}</article>
+        <h4>Comments:  (<span class="comments-count" id="${movie.id}"></span>)</h4>
+      <div id="${movie.id}" class="comments_container">
       </div>
       <h3>Add comments</h3>
       <form id="form">
         <input id="name" type="text" name="name" placeholder="Your name" required> <br>
         <textarea name="comments" id="movie_comments" cols="15" rows="5" required placeholder="Your insights"></textarea><br>
-        <button class="add-comment" id="${ movie.id }">Add Comment</button>
+        <button class="add-comment" id="${movie.id}">Add Comment</button>
       </form>
       </div>
       
@@ -90,17 +101,17 @@ const renderMovies = async () => {
     movies.forEach((movie) => {
       homepage.innerHTML += `
       <div class="movie">
-        <img src=${ movie.image.medium } class="movie-image" alt="Movie Poster">
+        <img src=${movie.image.medium} class="movie-image" alt="Movie Poster">
         <div class="movie-info">
-          <h4 class="movie-name">${ movie.name }</h4>
-          <div id="${ movie.id }" class="movie-likes">
+          <h4 class="movie-name">${movie.name}</h4>
+          <div id="${movie.id}" class="movie-likes">
             <i class="fa fa-heart-o like-icon" aria-hidden="true"></i>
-            <p id="likes-count-${ movie.id }"></p>
+            <p id="likes-count-${movie.id}"></p>
           </div>
         </div>
         <div class="button-container">
-          <a id="${ movie.id }" target="_blank" href=${ movie.url } class="watch-button">Watch</a>
-          <button id="${ movie.id }" class="comment-button">Comment</button>
+          <a id="${movie.id}" target="_blank" href=${movie.url} class="watch-button">Watch</a>
+          <button id="${movie.id}" class="comment-button">Comment</button>
         </div>
       </div>`;
       displayLikes(movie.id);
@@ -124,14 +135,14 @@ renderMovies();
 
 /*---------**************      Likes    ***************----------*/
 
-const likeURL = `${ involvementURL }${ involvementApiKey }/likes`;
+const likeURL = `${involvementURL}${involvementApiKey}/likes`;
 const postLikes = async (movieID) => {
   await fetch(likeURL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({item_id: movieID}),
+    body: JSON.stringify({ item_id: movieID }),
   });
 };
 
@@ -149,8 +160,8 @@ const displayLikes = async (movieID) => {
     if (likesResult) {
       likesCount = likesResult.likes;
     }
-    const likesHolder = document.getElementById(`likes-count-${ movieID }`);
-    likesHolder.textContent = `${ likesCount } Likes`;
+    const likesHolder = document.getElementById(`likes-count-${movieID}`);
+    likesHolder.textContent = `${likesCount} Likes`;
   });
 };
 
@@ -168,7 +179,7 @@ handleLikeBtn();
 
 /*---------**************       Comments    ***************----------*/
 
-const commentURL = `${ involvementURL }${ involvementApiKey }/comments`;
+const commentURL = `${involvementURL}${involvementApiKey}/comments`;
 
 const postComments = async (ID, name, comment) => {
   await fetch(commentURL, {
@@ -185,7 +196,7 @@ const postComments = async (ID, name, comment) => {
 };
 
 const fetchComments = async (id) => {
-  const response = await fetch(`${ commentURL }?item_id=${id}`);
+  const response = await fetch(`${commentURL}?item_id=${id}`);
   const result = await response.json();
   console.log(result);
   return result;
