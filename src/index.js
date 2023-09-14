@@ -1,5 +1,7 @@
 import "./style.css";
 
+/*---------**************       Fetching Data from API    ***************----------*/
+
 const moviesURL = "https://api.tvmaze.com/shows";
 
 const fetchData = async () => {
@@ -7,6 +9,8 @@ const fetchData = async () => {
   const result = await response.json();
   return result;
 };
+
+/*---------**************       Popup    ***************----------*/
 
 const homepage = document.querySelector("#homepage");
 const popupContainer = document.querySelector("#popup-container");
@@ -26,17 +30,13 @@ function showPopup(movie) {
       <div class="popup-inner">
         <h2 class="movieTitle">${movie.name}</h2>
         <article class="movieDescription">${movie.summary}</article>
-        <h4>Comments: <span id="commentsCount"></span></h4>
-      <article id="comments" class="comments_container">
-      <p>coming</p>
-          <p>Popular</p>
-          <p>coming</p>
-          <p>Popular</p>
-      </article>
+        <h4>Comments: <span id="comments-count"></span></h4>
+      <div id="comments" class="comments_container">
+      </div>
       <h3>Add comments</h3>
       <form action="" id="form">
         <input id="name" type="text" name="name" placeholder="Your name"> <br>
-        <textarea name="comments" id="movie_comments" cols="15" rows="10" placeholder="Your insights"></textarea><br>
+        <textarea name="comments" id="movie_comments" cols="15" rows="5" placeholder="Your insights"></textarea><br>
         <button class="add_comment" type="submit" id="${movie.id}"> Add Comment</button>
       </form>
       
@@ -57,6 +57,8 @@ document.addEventListener("click", (event) => {
     popupContainer.style.display = "none";
   }
 });
+
+/*---------**************       Render/Display Movies    ***************----------*/
 
 const renderMovies = async () => {
   homepage.innerHTML = "";
