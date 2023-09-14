@@ -4,6 +4,10 @@ import "./style.css";
 
 const moviesURL = "https://api.tvmaze.com/shows";
 
+const involvementURL =
+  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/";
+const involvementApiKey = "KTd9w8KpncZIww7GFHXJ";
+
 const fetchData = async () => {
   const response = await fetch(moviesURL);
   const result = await response.json();
@@ -34,12 +38,11 @@ function showPopup(movie) {
       <div id="comments" class="comments_container">
       </div>
       <h3>Add comments</h3>
-      <form action="" id="form">
+      <form id="form">
         <input id="name" type="text" name="name" placeholder="Your name"> <br>
         <textarea name="comments" id="movie_comments" cols="15" rows="5" placeholder="Your insights"></textarea><br>
-        <button class="add_comment" type="submit" id="${movie.id}"> Add Comment</button>
+        <button class="add-comment" id="${movie.id}">Add Comment</button>
       </form>
-      
       </div>
       
     </section>`;
@@ -72,9 +75,9 @@ const renderMovies = async () => {
         <img src=${movie.image.medium} class="movie-image" alt="Movie Poster">
         <div class="movie-info">
           <h4 class="movie-name">${movie.name}</h4>
-          <div class="movie-likes">
+          <div id="${movie.id}" class="movie-likes">
             <i class="fa fa-heart-o like-icon" aria-hidden="true"></i>
-            <p id="${movie.id}"><span class="display-likes"></span> Likes</p>
+            <p id="likes-count-${movie.id}"></p>
           </div>
         </div>
         <div class="button-container">
@@ -82,6 +85,7 @@ const renderMovies = async () => {
           <button id="${movie.id}" class="comment-button">Comment</button>
         </div>
       </div>`;
+      displayLikes(movie.id);
     });
 
     // Add event listeners to comment buttons
@@ -100,3 +104,55 @@ const renderMovies = async () => {
 };
 
 renderMovies();
+
+/*---------**************      Likes    ***************----------*/
+
+const likeURL = `${involvementURL}${involvementApiKey}/likes`;
+const postLikes = async (movieID) => {
+  await fetch(likeURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ item_id: movieID }),
+  });
+};
+
+const fetchLikes = async () => {
+  const response = await fetch(likeURL);
+  const result = await response.json();
+  return result;
+};
+
+const displayLikes = async (movieID) => {
+  fetchLikes().then((result) => {
+    const likesResult = result.find((item) => item.item_id === movieID);
+
+    let likesCount = 0;
+    if (likesResult) {
+      likesCount = likesResult.likes;
+    }
+    const likesHolder = document.getElementById(`likes-count-${movieID}`);
+    likesHolder.textContent = `${likesCount} Likes`;
+  });
+};
+
+const handleLikeBtn = () => {
+  (async () => {
+    await renderMovies();
+    const movies = document.querySelectorAll(".movie");
+    movies.forEach((movie) => {
+      const likeIcon = movie.querySelector(".like-icon");
+
+      likeIcon.addEventListener("click", async (event) => {
+        const parentID = parseInt(event.target.parentElement.id, 10);
+        await postLikes(parentID);
+        await displayLikes(parentID);
+      });
+    });
+  })();
+};
+
+handleLikeBtn();
+
+/*---------**************       Comments    ***************----------*/
