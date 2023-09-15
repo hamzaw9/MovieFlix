@@ -1,9 +1,9 @@
-import { fetchLikes } from "./fetchLikes";
-import { postLikes } from "./postLikes.js";
+import fetchLikes from './fetchLikes.js';
+import postLikes from './postLikes.js';
 
-const homepage = document.querySelector("#homepage");
+const homepage = document.querySelector('#homepage');
 
-export const displayLikes = async (movieID) => {
+const displayLikes = async (movieID) => {
   fetchLikes().then((result) => {
     const likesResult = result.find((item) => item.item_id === movieID);
 
@@ -17,8 +17,8 @@ export const displayLikes = async (movieID) => {
 };
 
 const handleLikeBtn = () => {
-  homepage.addEventListener("click", async (event) => {
-    if (event.target.classList.contains("like-icon")) {
+  homepage.addEventListener('click', async (event) => {
+    if (event.target.classList.contains('like-icon')) {
       const parentID = parseInt(event.target.parentElement.id, 10);
       await postLikes(parentID);
       await displayLikes(parentID);
@@ -27,3 +27,4 @@ const handleLikeBtn = () => {
 };
 
 handleLikeBtn();
+export default displayLikes;

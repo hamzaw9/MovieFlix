@@ -1,6 +1,6 @@
-import { renderMovies } from "./modules/renderMovies.js";
-import "./style.css";
+import renderMovies from './modules/renderMovies.js';
+import './style.css';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   renderMovies();
 });

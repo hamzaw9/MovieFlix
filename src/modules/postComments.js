@@ -1,17 +1,19 @@
-import { involvementURL, involvementApiKey } from "./apiCollection.js";
+import { involvementURL, involvementApiKey } from './apiCollection.js';
 
 const commentURL = `${involvementURL}${involvementApiKey}/comments`;
 
-export const postComments = async (ID, name, comment) => {
+const postComments = async (ID, name, comment) => {
   await fetch(commentURL, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       item_id: ID,
       username: name,
-      comment: comment,
+      comment,
     }),
   });
 };
+
+export default postComments;

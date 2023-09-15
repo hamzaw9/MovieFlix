@@ -1,14 +1,14 @@
-import {displayComments} from "./displayComments.js";
-import { commentsCount } from "./commentsCount.js";
+import displayComments from './displayComments.js';
+import commentsCount from './commentsCount.js';
 
-const popupContainer = document.querySelector("#popup-container");
-const overlay = document.getElementById("overlay");
+const popupContainer = document.querySelector('#popup-container');
+const overlay = document.getElementById('overlay');
 
 const closebuttonHandler = () => {
-  popupContainer.style.display = "none";
+  popupContainer.style.display = 'none';
 };
 
-export const showPopup = (movie) => {
+const showPopup = (movie) => {
   // Populate the popup with movie information
   popupContainer.innerHTML = `<section class="popup_container">
     <button class="close_button" id="close_popup">&times;</button>
@@ -31,11 +31,11 @@ export const showPopup = (movie) => {
       
     </section>`;
   // Display the popup
-  popupContainer.style.display = "block";
-  overlay.style.display = "block";
+  popupContainer.style.display = 'block';
+  overlay.style.display = 'block';
 
-  const closeBtn = document.getElementById("close_popup");
-  closeBtn.addEventListener("click", closebuttonHandler);
+  const closeBtn = document.getElementById('close_popup');
+  closeBtn.addEventListener('click', closebuttonHandler);
 
   displayComments(movie.id);
   commentsCount(movie.id);
@@ -43,8 +43,10 @@ export const showPopup = (movie) => {
 };
 
 // close popup
-document.addEventListener("click", (event) => {
+document.addEventListener('click', (event) => {
   if (event.target === popupContainer) {
-    popupContainer.style.display = "none";
+    popupContainer.style.display = 'none';
   }
 });
+
+export default showPopup;

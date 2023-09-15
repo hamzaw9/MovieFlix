@@ -1,12 +1,12 @@
-import { fetchData } from "./fetchData.js";
-import { showPopup } from "./popup.js";
-import { displayLikes } from "./displayLikes.js";
-import { itemCount } from "./itemCount.js";
+import fetchData from './fetchData.js';
+import showPopup from './popup.js';
+import displayLikes from './displayLikes.js';
+import itemCount from './itemCount.js';
 
-const homepage = document.querySelector("#homepage");
+const homepage = document.querySelector('#homepage');
 
-export const renderMovies = async () => {
-  homepage.innerHTML = "";
+const renderMovies = async () => {
+  homepage.innerHTML = '';
 
   try {
     const movies = await fetchData();
@@ -31,16 +31,18 @@ export const renderMovies = async () => {
       itemCount();
     });
 
-    const commentButtons = document.querySelectorAll(".comment-button");
+    const commentButtons = document.querySelectorAll('.comment-button');
     commentButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
+      button.addEventListener('click', (event) => {
         const movieId = event.target.id;
         const movie = movies.find((m) => m.id == movieId);
         showPopup(movie);
       });
     });
   } catch (error) {
-    const message = document.getElementById("error_message");
+    const message = document.getElementById('error_message');
     message.innerHTML = error;
   }
 };
+
+export default renderMovies;
