@@ -1,5 +1,6 @@
 import { postComments } from "./postComments.js";
-import { fetchComments } from "./fetchComment.js";
+import {fetchComments} from "./fetchComment.js";
+import { commentsCount } from "./commentsCount.js";
 
 const popupContainer = document.querySelector("#popup-container");
 
@@ -26,7 +27,7 @@ popupContainer.addEventListener("click", async (event) => {
     await postComments(event.target.id, userName, userComment);
     await fetchComments(event.target.id);
     displayComments(event.target.id);
-    // commentCount(event.target.id);
+    commentsCount(event.target.id);
     document.querySelector("#name").value = "";
     document.querySelector("#movie_comments").value = "";
   }

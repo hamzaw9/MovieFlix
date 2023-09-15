@@ -1,4 +1,5 @@
-import { displayComments } from "./displayComments";
+import {displayComments} from "./displayComments.js";
+import { commentsCount } from "./commentsCount.js";
 
 const popupContainer = document.querySelector("#popup-container");
 const overlay = document.getElementById("overlay");
@@ -37,7 +38,7 @@ export const showPopup = (movie) => {
   closeBtn.addEventListener("click", closebuttonHandler);
 
   displayComments(movie.id);
-  // commentCount(movie.id);
+  commentsCount(movie.id);
   return popupContainer;
 };
 
