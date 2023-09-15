@@ -14,17 +14,6 @@ const fetchData = async () => {
   return result;
 };
 
-/*---------**************       Item Count    ***************----------*/
-
-const itemCount = () => {
-  const items = document.getElementById("items");
-  fetchData().then((result) => {
-    items.textContent = result.length;
-  });
-};
-
-itemCount();
-
 /*---------**************       Popup    ***************----------*/
 
 const homepage = document.querySelector("#homepage");
@@ -45,8 +34,8 @@ function showPopup(movie) {
       <div class="popup-inner">
         <h2 class="movieTitle">${movie.name}</h2>
         <article class="movieDescription">${movie.summary}</article>
-        <h4>Comments:  (<span class="comments-count" id="${movie.id}"></span>)</h4>
-      <div id="${movie.id}" class="comments_container">
+        <h4>Comments:  (<span class="comments-count" id="commentsCount"></span>)</h4>
+      <div id="commentsContainer" class="comments_container">
       </div>
       <h3>Add comments</h3>
       <form id="form">
@@ -64,22 +53,8 @@ function showPopup(movie) {
   const closeBtn = document.getElementById("close_popup");
   closeBtn.addEventListener("click", closebuttonHandler);
 
-  /*const commentsCount = document.querySelector(".comments-count");
-  const commentsContainer = document.querySelector(".comments_container");
-  fetchComments().then((result) => {
-    console.log(result);
-​
-    commentsCount.textContent = result.length;
-    result.forEach((e, index) => {
-      if (index == movie.id) {
-​
-      }
-      const paragraph = document.createElement("p");
-      paragraph.textContent = `(${e.creation_date}) ${e.username}: ${e.comment}`;
-      commentsContainer.appendChild(paragraph);
-​
-    });
-  });*/
+  displayComments(movie.id);
+  commentCount(movie.id);
   return popupContainer;
 }
 
@@ -198,8 +173,23 @@ const postComments = async (ID, name, comment) => {
 const fetchComments = async (id) => {
   const response = await fetch(`${commentURL}?item_id=${id}`);
   const result = await response.json();
-  console.log(result);
   return result;
+};
+
+const displayComments = async (id) => {
+  const commentsContainer = document.getElementById("commentsContainer");
+  commentsContainer.textContent = "";
+  fetchComments(id).then((result) => {
+    if (!Array.isArray(result)) {
+      commentsCount.textContent = "No comments available";
+      return;
+    }
+    result.forEach((e) => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = `(${e.creation_date}) ${e.username}: ${e.comment}`;
+      commentsContainer.appendChild(paragraph);
+    });
+  });
 };
 
 popupContainer.addEventListener("click", async (event) => {
@@ -208,8 +198,21 @@ popupContainer.addEventListener("click", async (event) => {
   if (event.target.classList.contains("add-comment")) {
     event.preventDefault();
     await postComments(event.target.id, userName, userComment);
-    fetchComments(event.target.id);
+    await fetchComments(event.target.id);
+    displayComments(event.target.id);
+    commentCount(event.target.id);
     document.querySelector("#name").value = "";
     document.querySelector("#movie_comments").value = "";
   }
 });
+
+/*---------**************       Item Count    ***************----------*/
+
+const itemCount = () => {
+  const items = document.getElementById("items");
+  fetchData().then((result) => {
+    items.textContent = result.length;
+  });
+};
+
+itemCount();
