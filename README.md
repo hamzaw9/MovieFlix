@@ -62,6 +62,12 @@ MovieFlix offers a selection of the latest and most popular movies, enhanced wit
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://6504c929e988622717e70b34--lucky-torte-035bcc.netlify.app/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 💻 Getting Started <a name="getting-started"></a>
 
 1. Go to this URL link: https://github.com/hamzaw9/javascriptCapstone
