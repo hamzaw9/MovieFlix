@@ -163,12 +163,6 @@ Example command:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **Frontend Framework**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
