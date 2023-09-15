@@ -54,7 +54,7 @@ function showPopup(movie) {
   closeBtn.addEventListener("click", closebuttonHandler);
 
   displayComments(movie.id);
-  commentCount(movie.id);
+  // commentCount(movie.id);
   return popupContainer;
 }
 
@@ -181,7 +181,6 @@ const displayComments = async (id) => {
   commentsContainer.textContent = "";
   fetchComments(id).then((result) => {
     if (!Array.isArray(result)) {
-      commentsCount.textContent = "No comments available";
       return;
     }
     result.forEach((e) => {
