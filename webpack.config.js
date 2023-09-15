@@ -11,7 +11,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
       template: './src/index.html',
     }),
   ],
@@ -20,9 +19,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: '/',
-  },
-  optimization: {
-    runtimeChunk: 'single',
   },
   module: {
     rules: [
@@ -47,5 +43,8 @@ module.exports = {
         use: ['xml-loader'],
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
 };
