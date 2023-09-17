@@ -70,7 +70,7 @@ MovieFlix offers a selection of the latest and most popular movies, enhanced wit
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-1. Go to this URL link: https://github.com/hamzaw9/javascriptCapstone
+1. Go to this URL link: https://github.com/hamzaw9/MovieFlix
 2. clone the repo and start working on it.
 
 ### Prerequisites
@@ -107,7 +107,7 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/hamzaw9/javascriptCapstone
+  git clone https://github.com/hamzaw9/MovieFlix
 ```
 
 ### Install
@@ -139,7 +139,7 @@ StyleLint run:
 To run the project, execute the following command:
 
 ```sh
-  cd javascriptCapstone
+  cd MovieFlix
   index.html
 ```
 
@@ -164,8 +164,8 @@ Example command:
 
 👤 **Anold Mwagharo**
 
-- GitHub: [@hamzabaig](https://github.com/MPDADDY)
-- LinkedIn: [@hamzabaig](https://www.linkedin.com/in/anold-mwawasi/)
+- GitHub: [@anold](https://github.com/MPDADDY)
+- LinkedIn: [@anold](https://www.linkedin.com/in/anold-mwawasi/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -173,13 +173,13 @@ Example command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/hamzaw9/javascriptCapstone/issues).
+Feel free to check the [issues page](https://github.com/hamzaw9/MovieFlix/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you find this project useful and informative, please consider giving it a star. Your support and feedback are greatly appreciated and will motivate me to continue creating high-quality projects in the future.
+If you find this project helpful and informative, please consider giving it a star. Your support and feedback are greatly appreciated and will motivate me to continue creating high-quality projects in the future.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
