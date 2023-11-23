@@ -53,16 +53,16 @@ nav {
 }
 
 main {
-  background-image: url("https://dali.madrasthemes.com/elementor/wp-content/uploads/2022/09/bg.png");
+  background-image: url('https://dali.madrasthemes.com/elementor/wp-content/uploads/2022/09/bg.png');
   background-size: cover;
-  padding: 1% 5% 0 5%;
+  padding: 1% 7% 0 7%;
 }
 
 #homepage {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   gap: 16px;
-  padding: 30px 90px;
+  padding: 30px 0;
   text-align: center;
 }
 
@@ -145,7 +145,7 @@ form {
   gap: 3px;
 }
 
-input[type="text"],
+input[type='text'],
 textarea {
   border: 2px solid teal;
   border-radius: 8px;
@@ -162,11 +162,7 @@ textarea {
   border-radius: 4px;
   margin: 0 auto;
   width: 30%;
-  transition:
-    background-color 1s,
-    border 1s,
-    color 1s,
-    padding-left 1s,
+  transition: background-color 1s, border 1s, color 1s, padding-left 1s,
     padding-right 1s;
 }
 
@@ -231,7 +227,6 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
 }
 
 .watch-button,
@@ -242,10 +237,7 @@ footer {
   background-color: transparent;
   font-size: 15px;
   border-radius: 4px;
-  transition:
-    padding-right 0.7s,
-    padding-left 0.7s,
-    border-color 0.7s,
+  transition: padding-right 0.7s, padding-left 0.7s, border-color 0.7s,
     color 0.7s;
 }
 
@@ -257,9 +249,9 @@ footer {
   color: cornflowerblue;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   #homepage {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .nav-links {
@@ -267,12 +259,47 @@ footer {
   }
 
   .nav-links a {
-    font-size: 17px;
+    font-size: 20px;
+  }
+
+  main {
+    padding: 1% 4% 0 4%;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
+  #homepage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 368px) {
   #homepage {
     grid-template-columns: 100%;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .movie-info {
+    padding: 4px 0;
+  }
+
+  .movie-image {
+    width: 98%;
+    transition: transform 0.5s;
   }
 }
