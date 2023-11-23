@@ -20,16 +20,23 @@ const displayComments = async (id) => {
 };
 
 popupContainer.addEventListener('click', async (event) => {
-  const userName = document.querySelector('#name').value;
-  const userComment = document.querySelector('#movie_comments').value;
+  const userName = document.querySelector('#name');
+  const userComment = document.querySelector('#movie_comments');
+  const commentError = document.getElementById('comment-error');
+
   if (event.target.classList.contains('add-comment')) {
     event.preventDefault();
-    await postComments(event.target.id, userName, userComment);
+    if (userName.value !== '' && userComment.value !== '') {
+      await postComments(event.target.id, userName.value, userComment.value);
+    } else {
+      commentError.style.display = 'block';
+    }
     await fetchComments(event.target.id);
     displayComments(event.target.id);
     commentsCount(event.target.id);
-    document.querySelector('#name').value = '';
-    document.querySelector('#movie_comments').value = '';
+
+    userName.value = '';
+    userComment.value = '';
   }
 });
 

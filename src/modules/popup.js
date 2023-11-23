@@ -23,8 +23,9 @@ const showPopup = (movie) => {
       </div>
       <h3>Add comments</h3>
       <form id="form">
-        <input id="name" type="text" name="name" placeholder="Your name" required> <br>
-        <textarea name="comments" id="movie_comments" cols="15" rows="5" required placeholder="Your insights"></textarea><br>
+        <input id="name" type="text" name="name" placeholder="Your name">
+        <textarea name="comments" id="movie_comments" cols="15" rows="3" placeholder="Your insights"></textarea>
+        <span id="comment-error">Please fill both fields</span>
         <button class="add-comment" id="${movie.id}">Add Comment</button>
       </form>
       </div>
@@ -41,12 +42,5 @@ const showPopup = (movie) => {
   commentsCount(movie.id);
   return popupContainer;
 };
-
-// close popup
-document.addEventListener('click', (event) => {
-  if (event.target === popupContainer) {
-    popupContainer.style.display = 'none';
-  }
-});
 
 export default showPopup;

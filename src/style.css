@@ -86,7 +86,7 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .popup-inner h2,
@@ -142,7 +142,19 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 15px;
+}
+
+#comment-error {
+  display: none;
+  color: #d8000c;
+  background-color: #ffbaba;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
+  border-radius: 8px;
+  border: 1px solid;
+  padding: 10px 10px 10px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
 }
 
 input[type='text'],
