@@ -20,9 +20,9 @@ const displayComments = async (id) => {
 };
 
 popupContainer.addEventListener('click', async (event) => {
+  const commentError = document.getElementById('comment-error');
   const userName = document.querySelector('#name');
   const userComment = document.querySelector('#movie_comments');
-  const commentError = document.getElementById('comment-error');
 
   if (event.target.classList.contains('add-comment')) {
     event.preventDefault();
@@ -34,6 +34,14 @@ popupContainer.addEventListener('click', async (event) => {
     await fetchComments(event.target.id);
     displayComments(event.target.id);
     commentsCount(event.target.id);
+
+    document.querySelector('#name').addEventListener('focus', () => {
+      commentError.style.display = 'none';
+    });
+
+    document.querySelector('#movie_comments').addEventListener('focus', () => {
+      commentError.style.display = 'none';
+    });
 
     userName.value = '';
     userComment.value = '';
