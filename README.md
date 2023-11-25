@@ -64,7 +64,7 @@ MovieFlix offers a selection of the latest and most popular movies, enhanced wit
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://movieflix007.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
