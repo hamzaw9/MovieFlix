@@ -159,7 +159,6 @@ Example command:
 👤 **Hamza Baig**
 
 - GitHub: [@hamzabaig](https://github.com/hamzaw9)
-- Twitter: [@hamzabaig](https://twitter.com/hamzabaig059)
 - LinkedIn: [@hamzabaig](https://www.linkedin.com/in/hamzabaig-/)
 
 👤 **Anold Mwagharo**
