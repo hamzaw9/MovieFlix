@@ -173,7 +173,6 @@ textarea {
   padding: 4px 12px;
   border-radius: 4px;
   margin: 0 auto;
-  width: 30%;
   transition: background-color 1s, border 1s, color 1s, padding-left 1s,
     padding-right 1s;
 }
@@ -278,11 +277,11 @@ footer {
     padding: 1% 4% 0 4%;
   }
 
-  /* .popup_container {
-    width: 53%;
+  .popup_container {
+    width: 65%;
   }
 
-  .popup_img {
+  /*.popup_img {
   } */
 }
 
