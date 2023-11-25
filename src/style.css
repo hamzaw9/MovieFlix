@@ -110,7 +110,8 @@ main {
 }
 
 .comments_container p:nth-child(odd) {
-  background-color: white;
+  background-color: teal;
+  color: white;
 }
 
 .popup_container img {
