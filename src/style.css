@@ -174,7 +174,11 @@ textarea {
   padding: 4px 12px;
   border-radius: 4px;
   margin: 0 auto;
-  transition: background-color 1s, border 1s, color 1s, padding-left 1s,
+  transition:
+    background-color 1s,
+    border 1s,
+    color 1s,
+    padding-left 1s,
     padding-right 1s;
 }
 
@@ -249,7 +253,10 @@ footer {
   background-color: transparent;
   font-size: 15px;
   border-radius: 4px;
-  transition: padding-right 0.7s, padding-left 0.7s, border-color 0.7s,
+  transition:
+    padding-right 0.7s,
+    padding-left 0.7s,
+    border-color 0.7s,
     color 0.7s;
 }
 
@@ -279,11 +286,8 @@ footer {
   }
 
   .popup_container {
-    width: 65%;
+    width: 75%;
   }
-
-  /*.popup_img {
-  } */
 }
 
 @media (max-width: 600px) {
@@ -301,6 +305,11 @@ footer {
 
   .nav-links a {
     font-size: 15px;
+  }
+
+  .popup_container,
+  .popup-inner {
+    width: 90%;
   }
 }
 
@@ -320,5 +329,9 @@ footer {
   .movie-image {
     width: 98%;
     transition: transform 0.5s;
+  }
+
+  .popup-inner {
+    width: 96%;
   }
 }
